@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Poppins:wght@400;500&family=Unbounded:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="{% static 'src/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'src/css/contact.css' %}">
+
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/86cadcb31a.js" crossorigin="anonymous"></script>
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static '/src/js/slideMenu.js' %}" defer></script>
+    <script src="{% static '/src/js/modal.js' %}" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        {% include '_navbar.html' %}
+
+        <!-- MODAL -->
+        <div class="login-modal hide">
+            <div class="login-container">
+                <div class="header">
+                    <h1>Login</h1>
+                </div>
+                <div class="sub-header">
+                    <h5>
+                        Sign-in to continue
+                    </h5>
+                </div>
+                <div class="content">
+                    <form action="/handle_login/" class="login-form" method="POST">
+                        {% csrf_token %}
+                        <div class="email-cont input-cont">
+                            <label for="email">EMAIL</label>
+                            <input type="text" name="email" class="email">
+                        </div>
+                        <div class="pass-cont input-cont">
+                            <label for="password">PASSWORD</label>
+                            <input type="password" name="password" class="password">
+                        </div>
+                        
+                        <input type="submit" value="login">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="signup-modal hide">
+            <div class="signup-container">
+                <div class="header">
+                    <h1>Create a new account</h1>
+                </div>
+                <div class="sub-header">
+                    <h5>
+                        Already registered? <a href="#" class="login-btn">login</a> to continue
+                    </h5>
+                </div>
+                <div class="content">
+                    <form action="/handle_signin/" class="login-form" method="POST">
+                        {% csrf_token %}
+                        <div class="input-cont">
+                            <label for="name">NAME</label>
+                            <input type="text" name="signup-name" class="signup-name">
+                        </div>
+
+                        <div class="input-cont">
+                            <label for="email">EMAIL</label>
+                            <input type="text" name="email" class="email">
+                        </div>
+
+                        <div class="input-cont">
+                            <label for="email">MOBILE NUMBER</label>
+                            <input type="text" name="mobile" class="mobile">
+                        </div>
+                        
+                        <div class="input-cont">
+                            <label for="email">PASSWORD</label>
+                            <input type="password" name="password" class="password">
+                        </div>
+
+                        <div class="input-cont">
+                            <label for="email">DATE OF BIRTH</label>
+                            <input type="date" name="birthdate" class="birthdate">
+                        </div>
+                        <input type="submit" value="sign up">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <!-- DARK FILTER -->
+            <div id="filter" class="hide"></div>
+            <div class="contact-banner-container">
+                <div class="contact-banner">
+                    <img src="https://trafficandfunnels.com/wp-content/uploads/2021/01/AdobeStock_298179634-PhoneCalls-2.jpg" alt="" srcset="">
+                    <div class="filter"></div>
+                </div>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-box">
+                    <h1 class="contact-us-title">
+                        CONTACT US
+                    </h1>
+
+                    <div class="details">
+                        <div class="section">
+                            <div class="title">
+                                Mailing Address
+                            </div>
+                            <div class="desc">
+                                Tolosa Municipality
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="title">
+                                Email Address
+                            </div>
+                            <div class="desc">
+                                hello@tolosa.gov.com
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="title">
+                                Phone Number
+                            </div>
+                            <div class="desc">
+                                123-456-7890
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

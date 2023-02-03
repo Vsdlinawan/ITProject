@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Poppins:wght@400;500&family=Unbounded:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="{%static 'src/css/main.css' %}">
+    <link rel="stylesheet" href="{%static 'src/css/admin.css' %}">
+
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/86cadcb31a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script type="text/javascript" src="https://unpkg.com/dangerous-html@0.1.11/dist/default/lib.umd.js"></script>
+    <div class="wrapper">
+        <div class="navbar">
+            <h1>
+                ADMIN DASHBOARD
+            </h1>
+        </div>
+
+        <div class="main">
+            <!-- DARK FILTER -->
+            <div id="filter" class="hide"></div>
+            
+            <div class="admin-wrapper">
+                <!-- USERS TABLE -->
+                <div class="users-table">
+                    <h1>
+                        Users
+                    </h1>
+                    <dangerous-html html="
+                        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+                        <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Birthday</th>
+                            <th>Delete</th>
+                        </tr>
+                        {% for user in users %}
+                        <tr id='{{user.index}}_usersI'>
+                            <td>{{ user.index }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.mobile }}</td>
+                            <td>{{ user.birthdate }}</td>
+                            <td>
+                            <button id='{{user.index}}_users' type='button' class='btns trashbtn' onclick='handleUser(this)'><i class='fa fa-trash'></i></button>
+                            </td>  
+                        </tr>
+                        {% endfor %}
+                        </table>"
+                ></dangerous-html>
+                </div>
+
+                <!-- BOOKING TABLE -->
+                <div class="booking-table">
+                    <h1>
+                        Business Registration
+                    </h1>
+                    <dangerous-html html="
+                        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+                        <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Birthday</th>
+                            <th>Business Name</th>
+                            <th>Delete</th>
+                        </tr>
+                        {% for business in businesses %}
+                        <tr id='{{business.index}}_bookingI'>
+                            <td>{{ business.index }}</td>
+                            <td>{{ business.username }}</td>
+                            <td>{{ business.email }}</td>
+                            <td>{{ business.mobile }}</td>
+                            <td>{{ business.birthdate }}</td>
+                            <td>{{ business.businessName }}</td>
+                            <td>
+                            <button id='{{business.index}}_booking' type='button' class='btns trashbtn' onclick='handleBusiness(this)'><i class='fa fa-trash'></i></button>
+                            </td>  
+                        </tr>
+                        {% endfor %}
+                        </table>"
+                ></dangerous-html>
+                </div>
+
+                <!-- VOTER TABLE -->
+                <div class="voter-table">
+                    <h1>
+                        Voter's Registration
+                    </h1>
+                    <dangerous-html html="
+                        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+                        <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Birthday</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Delete</th>
+                        </tr>
+                        {% for voter in voters %}
+                        <tr id='{{voter.index}}_voterI'>
+                            <td>{{ voter.index }}</td>
+                            <td>{{ voter.username }}</td>
+                            <td>{{ voter.email }}</td>
+                            <td>{{ voter.mobile }}</td>
+                            <td>{{ voter.birthdate }}</td>
+                            <td>{{ voter.voterDate }}</td>
+                            <td>{{ voter.voterTime }}</td>
+                            <td>
+                            <button id='{{voter.index}}_voter' type='button' class='btns trashbtn' onclick='handleVoting(this)'><i class='fa fa-trash'></i></button>
+                            </td>  
+                        </tr>
+                        {% endfor %}
+                        </table>"
+                ></dangerous-html>
+                </div>
+
+                <!-- DOCUMENT TABLE -->
+                <div class="document-table">
+
+                    <h1>
+                        Document Registration
+                    </h1>
+                    <dangerous-html html="
+                        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+                        <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Birthday</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Delete</th>
+                        </tr>
+                        {% for document in documents %}
+                        <tr id='{{document.index}}_documentI'>
+                            <td>{{ document.index }}</td>
+                            <td>{{ document.username }}</td>
+                            <td>{{ document.email }}</td>
+                            <td>{{ document.mobile }}</td>
+                            <td>{{ document.birthdate }}</td>
+                            <td>{{ document.documentDate }}</td>
+                            <td>{{ document.documentTime }}</td>
+                            <td>
+                            <button id='{{document.index}}_document' type='button' class='btns trashbtn' onclick='handleDocument(this)'><i class='fa fa-trash'></i></button>
+                            </td>  
+                        </tr>
+                        {% endfor %}
+                        </table>"
+                ></dangerous-html>
+                </div>
+
+
+                <div>
+                    <form action="/handle_deletion/" id="submittingForm" method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="username" hidden id="submissionValueUsername" value="">
+                        <input type="text" name="email" hidden id="submissionValueEmail" value="">
+                        <input type="text" name="type" hidden id="submissionValueType" value="">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        function handleUser(buttonId){
+            var index = document.getElementById(String(buttonId.id)+ "I");
+            document.getElementById("submissionValueUsername").setAttribute("value",index.getElementsByTagName("td")[1].textContent);
+            document.getElementById("submissionValueEmail").setAttribute("value",index.getElementsByTagName("td")[2].textContent);
+            document.getElementById("submissionValueType").setAttribute("value","Users");
+            document.getElementById("submittingForm").submit();
+
+        }
+        function handleBusiness(buttonId){
+            var index = document.getElementById(String(buttonId.id)+ "I");
+            document.getElementById("submissionValueUsername").setAttribute("value",index.getElementsByTagName("td")[1].textContent);
+            document.getElementById("submissionValueEmail").setAttribute("value",index.getElementsByTagName("td")[2].textContent);
+            document.getElementById("submissionValueType").setAttribute("value","booking_schedules");
+            document.getElementById("submittingForm").submit();
+
+        }
+        function handleVoting(buttonId){
+            var index = document.getElementById(String(buttonId.id)+ "I");
+            document.getElementById("submissionValueUsername").setAttribute("value",index.getElementsByTagName("td")[1].textContent);
+            document.getElementById("submissionValueEmail").setAttribute("value",index.getElementsByTagName("td")[2].textContent);
+            document.getElementById("submissionValueType").setAttribute("value","voting_schedule");
+            document.getElementById("submittingForm").submit();
+
+        }
+        function handleDocument(buttonId){
+            var index = document.getElementById(String(buttonId.id)+ "I");
+            document.getElementById("submissionValueUsername").setAttribute("value",index.getElementsByTagName("td")[1].textContent);
+            document.getElementById("submissionValueEmail").setAttribute("value",index.getElementsByTagName("td")[2].textContent);
+            document.getElementById("submissionValueType").setAttribute("value","document_schedule");
+            document.getElementById("submittingForm").submit();
+        }
+    </script>
+
+
+</body>
+
+</html>
+
+

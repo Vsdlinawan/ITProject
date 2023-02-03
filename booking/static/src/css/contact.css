@@ -1,0 +1,79 @@
+.main .contact-banner-container {
+    position: absolute;
+}
+
+.main .contact-banner {
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.contact-banner img {
+    transform: translateY(-25%);
+}
+
+.contact-banner .filter {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+}
+
+.contact-container {
+    width: 100%;
+    min-height: 100px;
+    position: relative;
+}
+
+.contact-container .contact-us-title {
+    margin-bottom: 25px
+}
+
+.contact-container .contact-box {
+    background-color: whitesmoke;
+    border-radius: 15px;
+    min-height: 100px;
+    width: 400px;
+    position: absolute;
+
+    padding: 40px;
+    top: calc(50vh - 100%);
+    left: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.contact-container .details .title {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.contact-container .details > * {
+    margin-bottom: 25px;
+}
+
+.contact-container .details:last-child {
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .contact-container .contact-box {
+        width: 270px;
+        font-size: 13px;
+    }
+
+    .contact-container .details > * {
+        margin-bottom:15px;
+    }
+
+    .contact-container .contact-us-title {
+        margin-bottom: 15px
+    }
+
+    .contact-container .contact-box {
+        left: 50%;
+        margin-left: -175px;
+    }
+}

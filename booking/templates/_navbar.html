@@ -1,0 +1,71 @@
+<div class="navbar">
+    <!-- SLIDE MENU -->
+    <div class="slide-menu" id="slide-menu">
+        <!-- CLOSE BUTTON -->
+        <div class="menu-btn menu-close btn">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+
+        <!-- SLIDEBAR BUTTONS -->
+        <div class="buttons" id="button-container">
+            <div class="btn">
+                <a id="about-btn" href="/index">Home</a>
+            </div>
+
+            <div class="btn">
+                <a id="about-btn" href="/profile">My Account</a>
+            </div>
+
+            <!-- SERVICES DROP DOWN -->
+            <div class="btn" id="dropdown">
+                <a id="products-btn" href="/services">Services</a>
+            </div>
+            <div class="btn">
+                <a id="plan-btn" href="/about">About</a>
+            </div>
+            <div class="btn">
+                <a id="contact-btn" href="/contact">Contact us</a>
+                <!--removed events -> contact us-->
+            </div>
+        </div>
+    </div>
+
+    <div class="item-wrapper">
+        <div class="menu-btn btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="user-icon-container">
+            <div class="user-stuff-container">
+                {% if logged_in %}
+                <a href="/profile">
+                    My Profile
+                </a>
+                <span class="separator">|</span>
+                <a href="/handle_logout">
+                    Logout
+                </a>
+                {% else %}
+                <a href="#" class="login-btn">
+                    Login
+                </a>
+                <span class="separator">|</span>
+                <a href="#" id="signup-btn">
+                    Sign-up
+                </a>
+                {% endif %}
+
+                <!-- <img class="user-icon"
+                    src="https://media.discordapp.net/attachments/976691420087853066/1066524202099806328/user-placeholder-2687797674.jpeg"
+                    alt=""> -->
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar">
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass btn"></i>
+            </div>
+        </div>
+    </div>
+</div>

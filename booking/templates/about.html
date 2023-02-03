@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Poppins:wght@400;500&family=Unbounded:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="{% static 'src/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'src/css/services.css' %}">
+
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/86cadcb31a.js" crossorigin="anonymous"></script>
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static '/src/js/slideMenu.js' %}" defer></script>
+    <script src="{% static '/src/js/modal.js' %}" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        {% include '_navbar.html' %}
+        
+        <!-- MODAL -->
+        <div class="login-modal hide">
+            <div class="login-container">
+                <div class="header">
+                    <h1>Login</h1>
+                </div>
+                <div class="sub-header">
+                    <h5>
+                        Sign-in to continue
+                    </h5>
+                </div>
+                <div class="content">
+                    <form action="/handle_login/" class="login-form" method="POST">
+                        {% csrf_token %}
+                        <div class="email-cont input-cont">
+                            <label for="email">EMAIL</label>
+                            <input type="text" name="email" class="email">
+                        </div>
+                        <div class="pass-cont input-cont">
+                            <label for="password">PASSWORD</label>
+                            <input type="password" name="password" class="password">
+                        </div>
+                        
+                        <input type="submit" value="login">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="signup-modal hide">
+            <div class="signup-container">
+                <div class="header">
+                    <h1>Create a new account</h1>
+                </div>
+                <div class="sub-header">
+                    <h5>
+                        Already registered? <a href="#" class="login-btn">login</a> to continue
+                    </h5>
+                </div>
+                <div class="content">
+                    <form action="/handle_signin/" class="login-form" method="POST">
+                        {% csrf_token %}
+                        <div class="input-cont">
+                            <label for="name">NAME</label>
+                            <input type="text" name="signup-name" class="signup-name">
+                        </div>
+
+                        <div class="input-cont">
+                            <label for="email">EMAIL</label>
+                            <input type="text" name="email" class="email">
+                        </div>
+
+                        <div class="input-cont">
+                            <label for="email">MOBILE NUMBER</label>
+                            <input type="text" name="mobile" class="mobile">
+                        </div>
+                        
+                        <div class="input-cont">
+                            <label for="email">PASSWORD</label>
+                            <input type="password" name="password" class="password">
+                        </div>
+
+                        <div class="input-cont">
+                            <label for="email">DATE OF BIRTH</label>
+                            <input type="date" name="birthdate" class="birthdate">
+                        </div>
+                        <input type="submit" value="sign up">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <!-- DARK FILTER -->
+            <div id="filter" class="hide"></div>
+            <div class="content">
+                <div class="button-group">
+                    <a href="#">
+                        <div>
+                            Municipality of Tolosa
+                        </div>
+                        <div class="img-container">
+                            <img src="https://media.discordapp.net/attachments/976691420087853066/1068889194769952798/grunge-red-wip-work-in-process-word-round-rubber-vector-37125157-1452800267.jpeg" alt="">
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div>
+                            List of Mayor's
+                        </div>
+                        <div class="img-container">
+                            <img src="https://media.discordapp.net/attachments/976691420087853066/1068889194769952798/grunge-red-wip-work-in-process-word-round-rubber-vector-37125157-1452800267.jpeg" alt="">
+                        </div>
+                    </a>
+                    
+                    <a href="">
+                        <div>
+                            The Cities
+                        </div>
+                        <div class="img-container">
+                            <img src="https://media.discordapp.net/attachments/976691420087853066/1068889194769952798/grunge-red-wip-work-in-process-word-round-rubber-vector-37125157-1452800267.jpeg" alt="">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

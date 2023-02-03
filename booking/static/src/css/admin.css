@@ -1,0 +1,29 @@
+.ton_table {
+
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar h1 {
+    text-align: center;
+    margin: auto;
+}
+
+.admin-wrapper {
+    padding: 50px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px 25px;
+}
+
+.admin-wrapper > * {
+    margin: 50px 0;
+}
